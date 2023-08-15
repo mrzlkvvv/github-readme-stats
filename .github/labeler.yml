@@ -1,7 +1,13 @@
 themes: themes/index.js
 doc-translation: docs/*
-card-i18n: src/translations.js
-documentation: readme.md
+card-i18n:
+  - src/translations.js
+  - src/common/I18n.js
+documentation:
+  - readme.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
+  - SECURITY.md
 dependencies:
   - package.json
   - package-lock.json
@@ -21,6 +27,10 @@ wakatime-card:
   - api/wakatime.js
   - src/cards/wakatime-card.js
   - src/fetchers/wakatime-fetcher.js
+gist-card:
+  - api/gist.js
+  - src/cards/gist-card.js
+  - src/fetchers/gist-fetcher.js
 ranks: src/calculateRank.js
 ci:
   - .github/workflows/*

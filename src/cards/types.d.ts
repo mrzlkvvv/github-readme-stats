@@ -1,5 +1,5 @@
 type ThemeNames = keyof typeof import("../../themes/index.js");
-type RankIcon = "default" | "github";
+type RankIcon = "default" | "github" | "percentile";
 
 export type CommonOptions = {
   title_color: string;
@@ -56,4 +56,9 @@ type WakaTimeOptions = CommonOptions & {
   custom_title: string;
   layout: "compact" | "normal";
   langs_count: number;
+};
+
+export type GistCardOptions = CommonOptions & {
+  hide_border: boolean;
+  show_owner: boolean;
 };

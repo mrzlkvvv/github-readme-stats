@@ -5,6 +5,7 @@ import api from "../api/index.js";
 import { calculateRank } from "../src/calculateRank.js";
 import { renderStatsCard } from "../src/cards/stats-card.js";
 import { CONSTANTS, renderError } from "../src/common/utils.js";
+import { expect, it, describe, afterEach } from "@jest/globals";
 
 const stats = {
   name: "Anurag Hazra",
@@ -12,6 +13,8 @@ const stats = {
   totalCommits: 200,
   totalIssues: 300,
   totalPRs: 400,
+  totalPRsMerged: 320,
+  mergedPRsPercentage: 80,
   totalReviews: 50,
   totalDiscussionsStarted: 10,
   totalDiscussionsAnswered: 40,
@@ -23,6 +26,7 @@ stats.rank = calculateRank({
   all_commits: false,
   commits: stats.totalCommits,
   prs: stats.totalPRs,
+  reviews: stats.totalReviews,
   issues: stats.totalIssues,
   repos: 1,
   stars: stats.totalStars,
@@ -39,6 +43,7 @@ const data_stats = {
         totalPullRequestReviewContributions: stats.totalReviews,
       },
       pullRequests: { totalCount: stats.totalPRs },
+      mergedPullRequests: { totalCount: stats.totalPRsMerged },
       openIssues: { totalCount: stats.totalIssues },
       closedIssues: { totalCount: 0 },
       followers: { totalCount: 0 },
